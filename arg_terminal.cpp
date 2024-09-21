@@ -72,7 +72,7 @@ int main(int argc, char* argv[]){
     }
 
 
-    //ESS PARTE APARENTEMENTE DEU CERTO GALERA 😭🙏🏼 
+    //ESSA PARTE APARENTEMENTE DEU CERTO GALERA 😭🙏🏼 
 
 }
 
