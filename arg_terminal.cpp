@@ -4,7 +4,7 @@
 #include <cstring>       //Para lidar com os argumentos recebidos na linha de comando
 
 
-using namespace std;
+using namespace std; 
 
 int main(int argc, char* argv[]){
 
