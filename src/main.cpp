@@ -14,7 +14,22 @@ int main(int argc, char* argv[]) {
     //Chama a classe que lida com argumentos da linha de comando
     LinhaComando cmd(argc, argv);
 
-    //CHAMADA DOS MÉTODOS DAS DEMAIS CLASSES:
+    //Chama a classe ProcessaArquivo para ler e processar o arquivo de entrada
+    ProcessaArquivo ProcessaArq(cmd.GetNome());  //ProcessaArq é um objeto criado a partir da classe ProcessaArquivo
+
+    if (!ProcessaArq.arquivoAbriu()){     //Verifica se o arquivo foi aberto corretamente, caso contrário retorna FALSE
+        std::wcerr << L"Erro ao abrir o arquivo!" << std::endl;  //Informa que ocorreu um erro ao tentar abrir o arquivo 
+        return 1;               //Encerra o programa com código de errro 1
+    }
+
+    //Chama o método realizaContagem da classe ProcessaArq, responsável por realizar a lógica de contagem de palavras, palavras distintas e caracteres
+    ProcessaArq.realizaContagem();  //processa_arquivo.cpp
+
+    //Chama o método ordenaPalavras da classe ProcessaArq para ordenar as palavras e gerar o arquivo de saída com base nos parâmetros recebidos por terminal
+    ProcessaArq.ordenaPalavras(cmd.GetOrdem(), cmd.GetFormatoSaida()); //processa_arquivo.cpp
+
+    //Exibe as saídas padrão no terminal. 
+    ProcessaArq.printaSaidaPadrao(); //processa_arquivo.cpp
 
     return 0;
 }
